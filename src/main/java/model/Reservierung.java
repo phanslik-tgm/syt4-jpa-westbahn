@@ -1,6 +1,8 @@
 package model;
 import java.util.Date;
-
+import javax.persistence.*;
+import javax.validation.constraints.Size;
+import org.hibernate.annotations.Type;
 public class Reservierung {
 
 	private Long ID;
