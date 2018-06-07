@@ -29,7 +29,7 @@ public class Benutzer {
 	@Column(name="nachName")
 	private String nachName;
 
-	@Column(name="eMail",unique=true)
+	@Column(name="eMail",unique=true, nullable=false)
 	private String eMail;
 
 	@Column(name="passwort", nullable=false)
@@ -115,5 +115,36 @@ public class Benutzer {
 
 	public void setReservierungen(Collection<Reservierung> reservierungen) {
 		this.reservierungen = reservierungen;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Benutzer benutzer = (Benutzer) o;
+
+		if (!getID().equals(benutzer.getID())) return false;
+		if (getVorName() != null ? !getVorName().equals(benutzer.getVorName()) : benutzer.getVorName() != null)
+			return false;
+		if (getNachName() != null ? !getNachName().equals(benutzer.getNachName()) : benutzer.getNachName() != null)
+			return false;
+		if (!geteMail().equals(benutzer.geteMail())) return false;
+		if (!getPasswort().equals(benutzer.getPasswort())) return false;
+		if (!getSmsNummer().equals(benutzer.getSmsNummer())) return false;
+		if (getVerbuchtePraemienMeilen() != null ? !getVerbuchtePraemienMeilen().equals(benutzer.getVerbuchtePraemienMeilen()) : benutzer.getVerbuchtePraemienMeilen() != null)
+			return false;
+		if (getTickets() != null ? !getTickets().equals(benutzer.getTickets()) : benutzer.getTickets() != null)
+			return false;
+		return getReservierungen() != null ? getReservierungen().equals(benutzer.getReservierungen()) : benutzer.getReservierungen() == null;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = getID().hashCode();
+		result = 31 * result + geteMail().hashCode();
+		result = 31 * result + getPasswort().hashCode();
+		result = 31 * result + getSmsNummer().hashCode();
+		return result;
 	}
 }

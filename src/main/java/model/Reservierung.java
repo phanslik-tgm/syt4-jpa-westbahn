@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
 @Entity
-@NamedQueries ({@NamedQuery(name="Bahnhof.getAll",query="SELECT b from Bahnhof b")})
+@NamedQueries ({@NamedQuery(name="Reservierung.getAll",query="SELECT b from Bahnhof b")})
 public class Reservierung {
 
 
@@ -110,5 +110,30 @@ public class Reservierung {
 
 	public void setZahlung(Zahlung zahlung) {
 		this.zahlung = zahlung;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Reservierung that = (Reservierung) o;
+
+		if (getPraemienMeilenBonus() != that.getPraemienMeilenBonus()) return false;
+		if (getPreis() != that.getPreis()) return false;
+		if (getID() != null ? !getID().equals(that.getID()) : that.getID() != null) return false;
+		if (getDatum() != null ? !getDatum().equals(that.getDatum()) : that.getDatum() != null) return false;
+		if (getStatus() != that.getStatus()) return false;
+		if (getZug() != null ? !getZug().equals(that.getZug()) : that.getZug() != null) return false;
+		if (getStrecke() != null ? !getStrecke().equals(that.getStrecke()) : that.getStrecke() != null) return false;
+		if (getBenutzer() != null ? !getBenutzer().equals(that.getBenutzer()) : that.getBenutzer() != null)
+			return false;
+		return getZahlung() != null ? getZahlung().equals(that.getZahlung()) : that.getZahlung() == null;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = getID() != null ? getID().hashCode() : 0;
+		return result;
 	}
 }

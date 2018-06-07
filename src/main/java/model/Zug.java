@@ -88,4 +88,6 @@ public class Zug {
 	public void setEnde(Bahnhof ende) {
 		this.ende = ende;
 	}
+
+
 }
