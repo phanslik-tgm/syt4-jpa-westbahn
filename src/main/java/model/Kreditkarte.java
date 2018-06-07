@@ -4,12 +4,12 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
 public class Kreditkarte implements Zahlung {
 
+	public Kreditkarte()
+	{
+		super();
+	}
 
-	/**
-	 * @see Zahlung#zahlungDurchfuehren()
-	 * 
-	 *  
-	 */
+
 	public void zahlungDurchfuehren() {
 
 	}

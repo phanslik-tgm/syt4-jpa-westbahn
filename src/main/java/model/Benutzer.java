@@ -2,9 +2,21 @@ package model;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
+import java.util.Collection;
 
-@Entity(name = "Benutzer")
 public class Benutzer {
+
+	public Benutzer(String vorName, String nachName, String eMail, String passwort, String smsNummer, Long verbuchtePraemienMeilen)
+	{
+		super();
+		this.vorName = vorName;
+		this.nachName = nachName;
+		this.eMail = eMail;
+		this.passwort = passwort;
+		this.smsNummer = smsNummer;
+		this.verbuchtePraemienMeilen = verbuchtePraemienMeilen;
+	}
+
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id")
@@ -19,10 +31,10 @@ public class Benutzer {
 	@Column(name="eMail",unique=true)
 	private String eMail;
 
-	@Column(name="passwort")
+	@Column(name="passwort", nullable=false)
 	private String passwort;
 
-	@Column(name="smsNummer",unique=true)
+	@Column(name="smsNummer",unique=true, nullable=false)
 	private String smsNummer;
 
 	@Column(name="verbuchtePraemienMeilen")
@@ -32,12 +44,9 @@ public class Benutzer {
 	private Ticket tickets;
 
 	@Column(name="reservierungen")
-	private Reservierung[] reservierungen;
+	private Collection<Reservierung> reservierungen;
 
-
-	public Long getID() {
-		return ID;
-	}
+	public Long getID() { return ID; }
 
 	public void setID(Long ID) {
 		this.ID = ID;
@@ -99,11 +108,11 @@ public class Benutzer {
 		this.tickets = tickets;
 	}
 
-	public Reservierung[] getReservierungen() {
+	public Collection<Reservierung> getReservierungen() {
 		return reservierungen;
 	}
 
-	public void setReservierungen(Reservierung[] reservierungen) {
+	public void setReservierungen(Collection<Reservierung> reservierungen) {
 		this.reservierungen = reservierungen;
 	}
 }

@@ -4,12 +4,11 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
 public class Maestro implements Zahlung {
 
+	public Maestro()
+	{
+		super();
+	}
 
-	/**
-	 * @see Zahlung#zahlungDurchfuehren()
-	 * 
-	 *  
-	 */
 	public void zahlungDurchfuehren() {
 
 	}
