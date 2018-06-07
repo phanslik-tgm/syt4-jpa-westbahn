@@ -2,6 +2,7 @@ package model;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
+@Entity
 public class Preisstaffelung {
 
 	public Preisstaffelung(float grossGepaeck, float fahrrad, int zeitkarteWoche, int zeitkarteMonat, int zeitkarteJahr) {

@@ -2,6 +2,7 @@ package model;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
+@Entity
 public abstract class Ticket
 {
 	public Ticket(Strecke strecke, Zahlung zahlung) {

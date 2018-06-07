@@ -3,6 +3,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
 
+@Entity
 public class Einzelticket extends Ticket
 {
 

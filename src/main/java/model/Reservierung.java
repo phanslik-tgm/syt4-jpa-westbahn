@@ -3,8 +3,8 @@ import java.util.Date;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
-
-
+@Entity
+@NamedQueries ({@NamedQuery(name="Bahnhof.getAll",query="SELECT b from Bahnhof b")})
 public class Reservierung {
 
 

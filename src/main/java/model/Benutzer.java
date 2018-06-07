@@ -4,6 +4,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
 import java.util.Collection;
 
+@Entity
 public class Benutzer {
 
 	public Benutzer(String vorName, String nachName, String eMail, String passwort, String smsNummer, Long verbuchtePraemienMeilen)

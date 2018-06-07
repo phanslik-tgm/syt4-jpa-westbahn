@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
 
+@Entity
 public class Zeitkarte extends Ticket {
 
 	public Zeitkarte(Strecke strecke, Zahlung zahlung, Date gueltigAb, ZeitkartenTyp typ) {
